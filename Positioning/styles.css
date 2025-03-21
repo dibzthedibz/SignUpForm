@@ -1,0 +1,38 @@
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} */
+
+body {
+    background-color: black;
+    /* display: flex;
+    flex-direction: row;
+    align-self: center;
+    align-items: center;
+    justify-content: center; */
+}
+
+.parent {
+    background-color: #0000ff;
+    padding: 4px;
+    position: relative;
+    height: 200vh;
+}
+
+.child-one {
+    background-color: green;
+    padding: 4px;
+    position: sticky;
+    top: 0;
+}
+
+.child-two {
+    background-color: red;
+    padding: 4px;
+}
+
+.child-three {
+    background-color: purple;
+    padding: 4px;
+}
