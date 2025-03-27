@@ -9,6 +9,10 @@ html body {
   margin: 0;
   padding: 0;
 }
+html {
+  font-size: clamp(12px, 1.5vw, 16px); /* Scales with viewport width */
+}
+
 
 body {
   display: flex;
@@ -22,9 +26,11 @@ body {
   display: grid;
   grid-template-columns: 30% 1fr;
   background-color: white;
-  width: 55vw;
+  width: clamp(320px, 80%, 55vw);
   height: 80vh;
   margin: 0 auto;
+  max-width: 100%;
+  max-height: 100vh;
   /* overflow: hidden */
 }
 
@@ -35,18 +41,21 @@ body {
 }
 
 .card-right {
-  height: auto;
-  flex-direction: column;
-  font-size: 1rem;
-  max-width: calc(100% - 1rem);
+  display: grid;
+  padding: 1rem;
+  flex: 1;
+  height: 100%;
   background-color: rgba(194, 191, 224, 0.082);
-  /* overflow: hidden */
+  overflow: auto;
+  width: 100%
 }
 
 .header {
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  height: auto;
-  padding: 140px 0px 65px 2.75rem;
+  height: 25rem;
+  padding: 7%:
 }
 
 
@@ -64,6 +73,7 @@ body {
     font-weight: 750;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     padding-right: 17rem;
+    word-wrap: break-word;
 }
 
 .header p:last-child {
@@ -72,19 +82,68 @@ body {
 }
 
 form {
-  font-size: clamp(8px, 0.5em, 12px);
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  /* gap: 2rem;
-  justify-content: start; */
-  text-align: left;
+  grid-template-columns: 1fr 1fr;
   background-color: white;
   padding-bottom: 55px;
   width: 100%;
 }
 
+@media (max-width: 1600px) {
+  form {
+    grid-template-columns: 1fr;
+  }
+  .header p {
+    font-size: 1px;
+    padding-right: 1rem;
+  }
+  footer {
+    height: 30%;
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+      grid-template-columns: 1fr; /* Stack columns vertically */
+  }
+
+  .card-left, .card-right {
+      width: 100%; /* Make them scale together */
+      height: auto;
+  }
+
+  form {
+      grid-template-columns: 1fr; /* Simplify layout */
+  }
+
+  button {
+      padding: 0.5rem; /* Shrinks button size */
+  }
+}
+
+
+@media (max-width: 320px) {
+  html {
+      font-size: 14px; /* Scale down root font size */
+  }
+
+  .card {
+      width: 95%; /* Ensure it fits within small screens */
+  }
+
+  form {
+      width: 100%; /* Full width form */
+  }
+
+  input, button {
+      font-size: 0.8rem; /* Shrink font dynamically */
+      padding: 0.4rem; /* Adjust padding */
+  }
+}
+
 
 label {
+  font-size: clamp(.8rem, 1vw, 1.2rem);
     transform: scale(.7);
     transform-origin: left;
     text-align: left;
@@ -103,7 +162,7 @@ form section {
     /* width: 100%; */
     display: flex;
     flex-direction: column;
-    padding-left: 55px;
+    padding-left: 2.75rem;
     text-align: left;
 }
 
