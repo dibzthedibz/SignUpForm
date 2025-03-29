@@ -12,17 +12,11 @@
 }
 
 body {
-    height: 100vh;
     background-color: rgb(27, 27, 27);
-    display: flex;
-    align-items: center;
 }
 
 .main-contain {
-    display: grid;
-    grid-template-columns: 30% 1fr;
     width: 69vmin;
-    height: 56vmin;
     margin: 0 auto;
     background-color: white;
 }
@@ -43,7 +37,6 @@ body {
     }
 
 #logo-contain{
-    height: 15%;
     width: 100%;
     opacity: 75%;
     margin-top: 150px; 
@@ -55,7 +48,6 @@ body {
 
 #logo-contain > img {
     /* width: 35%; */
-    height: 100%;
     max-width: 100%;
 }
 
